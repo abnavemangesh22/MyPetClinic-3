@@ -63,7 +63,6 @@ pipeline{
         }
         stage('Deploy the application on Remote'){
             steps{
-                #sh "sudo ssh -o StrictHostKeyChecking=no root@192.168.15.190 'docker stop webapp'"
                 sh "sudo ssh -o StrictHostKeyChecking=no root@192.168.15.190 'docker pull mangeshabnave/mycentralbank-3:latest'"
                 sh "sudo ssh -o StrictHostKeyChecking=no root@192.168.15.190 'docker run -dit --name webpp -p 45000:8080 mangeshabnave/mycentralbank-3:latest'"
             }
